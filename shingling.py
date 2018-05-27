@@ -34,6 +34,7 @@ def shingle_files(path_to_files, file_output, k=2):
                 shingleDict[shingle] = count
                 count += 1
             temp.add(shingleDict[shingle])
+
         name_file = file.split("/")[-1].split(".")[0]
         docShingleDict[name_file] = temp
 
@@ -44,4 +45,4 @@ def shingle_files(path_to_files, file_output, k=2):
 
     return 0
 
-shingle_files('/home/maria/Documents/Courses_UCU/mmds/corpus', "./docShingleDict.pkl",  4)
+shingle_files('/home/maria/Documents/Courses_UCU/mmds/corpus', "./docShingleDict.pkl",  3)
