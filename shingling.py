@@ -4,16 +4,17 @@ from os.path import isfile, join
 import string
 
 
-def shingle_files(path_to_files, file_output, k=2):
+def shingle_files(path_to_files, file_output='./shingles.pkl', k=2):
     """
-    Division of each file into shingles of a given length. With hashing values of each shingle
+    Division of each file into shingles of a given length. With hashing values of each shingle.
+    Each shingle consists of k number of words.
     :param path_to_files:
     :param k: number of words for shingling
-    :return: creates pickle with dictionary
+    :return: creates pickle file with dictionary
     """
     files_list = [path_to_files + '/' + f for f in listdir(path_to_files) if isfile(join(path_to_files, f))]
 
-    docShingleDict, shingleDict = {}, {}
+    files_shingle_dict, shingle_dict = {}, {}
 
     count = 0
     for file in files_list:
@@ -30,19 +31,19 @@ def shingle_files(path_to_files, file_output, k=2):
             for k_gram in range(k):
                 shingle += words[index+k_gram] + " "
 
-            if shingle not in shingleDict.keys():
-                shingleDict[shingle] = count
+            if shingle not in shingle_dict.keys():
+                shingle_dict[shingle] = count
                 count += 1
-            temp.add(shingleDict[shingle])
+            temp.add(shingle_dict[shingle])
 
         name_file = file.split("/")[-1].split(".")[0]
-        docShingleDict[name_file] = temp
+        files_shingle_dict[name_file] = temp
 
     # print(shingleDict)
     output = open(file_output, 'wb')
-    pickle.dump(docShingleDict, output)
+    pickle.dump(files_shingle_dict, output)
     output.close()
 
     return 0
 
-shingle_files('/home/maria/Documents/Courses_UCU/mmds/corpus', "./docShingleDict.pkl",  3)
+# shingle_files('/home/maria/Documents/Courses_UCU/mmds/corpus', "./shingles.pkl",  2)
