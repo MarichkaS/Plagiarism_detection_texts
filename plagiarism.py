@@ -45,7 +45,7 @@ def plagiarism_check(shingled_data='./shingles.pkl', num_permutations=20):
         for sec_f in range(i, len(perm_matrix)-1):
             # The bigger the distance the less similar documents are
             dist = distance.jaccard(perm_matrix[i], perm_matrix[sec_f+1])
-            if dist < 0.5:
+            if dist < 0.7:  # this parameter can vary
                 print("Files: " + list(reader.keys())[i] + " and " + list(reader.keys())[sec_f+1])
                 print(dist)
 
