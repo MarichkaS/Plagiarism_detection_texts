@@ -11,4 +11,6 @@ Command to run script:
 python main.py './corpus' 2 10
 
 Parameters: 
-<img src="./help.png" width="800px" height="450px"/> 
+
+
+<img src="./help.png" width="600px" height="250px"/> 
