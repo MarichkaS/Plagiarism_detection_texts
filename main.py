@@ -19,7 +19,7 @@ def main():
         st = time.time()
         shingle_files(files_path, './shingles.pkl', k_arg)
         # plagiarism_check_minhash_permutations('./shingles.pkl', num_permutations)
-        plagiarism_check_minhash('./shingles.pkl', num_hash=20)
+        plagiarism_check_minhash('./shingles.pkl', num_hash=num_permutations)
         print("Done in ",time.time() - st, " seconds")
 
 if __name__ == '__main__':
