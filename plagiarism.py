@@ -1,6 +1,7 @@
 import numpy as np
 import pickle
 from scipy.spatial import distance
+import time
 
 
 def generate_matrix(reader):
@@ -52,4 +53,7 @@ def plagiarism_check(shingled_data='./shingles.pkl', num_permutations=20):
     np.savetxt("./matrix.txt", perm_matrix.astype(int))
     return 0
 
+# st = time.time()
 # plagiarism_check("./shingles.pkl")
+#
+# print(time.time() - st)
