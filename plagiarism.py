@@ -69,8 +69,8 @@ def minhash(reader, num_shingles, num_files):
             file = list(reader.keys())[j]
             if row_index in reader[file]:
                 hash_col.append(i+1)
+                break
         hash_values.append(min(hash_col))
-
     return np.array(hash_values)
 
 
@@ -93,7 +93,7 @@ def plagiarism_check_minhash(shingled_data='./shingles.pkl', num_hash=10):
 
     return 0
 
-
+#
 # st = time.time()
 # plagiarism_check_minhash("./shingles.pkl")
 # print(time.time() - st)
