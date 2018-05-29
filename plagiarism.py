@@ -64,13 +64,11 @@ def minhash(reader, num_shingles, num_files):
 
     hash_values = []
     for j in range(num_files):
-        hash_col = []
         for i, row_index in enumerate(random_rows):
             file = list(reader.keys())[j]
             if row_index in reader[file]:
-                hash_col.append(i+1)
+                hash_values.append(i+1)
                 break
-        hash_values.append(min(hash_col))
     return np.array(hash_values)
 
 
@@ -89,7 +87,7 @@ def plagiarism_check_minhash(shingled_data='./shingles.pkl', num_hash=10):
             dist = distance.jaccard(signature_matrix[i], signature_matrix[sec_f + 1])
             if dist < 0.8:
                 print("Files: " + list(reader.keys())[i] + " and " + list(reader.keys())[sec_f + 1], 'with distance:',
-                      dist, 'and similarity :', (1-dist)*100, '%')
+                      dist, 'and similarity :', round((1-dist)*100), '%')
 
     return 0
 
