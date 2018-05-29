@@ -8,8 +8,9 @@ Task from MMDS course.
 
 ## Run
 Command to run script: 
+```
 python main.py './corpus' 2 10
-
+```
 Parameters: 
 
 
