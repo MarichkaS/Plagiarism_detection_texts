@@ -46,4 +46,4 @@ def shingle_files(path_to_files, file_output='./shingles.pkl', k=2):
 
     return 0
 
-# shingle_files('/home/maria/Documents/Courses_UCU/mmds/corpus', "./shingles.pkl",  2)
+# shingle_files('/home/maria/Documents/Courses_UCU/mmds/corpus', "./shingles.pkl",  3)

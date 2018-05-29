@@ -1,7 +1,7 @@
-from plagiarism import plagiarism_check
+from plagiarism import plagiarism_check_minhash_permutations, plagiarism_check_minhash
 from shingling import shingle_files
 import argparse
-
+import time
 
 def main():
 
@@ -16,9 +16,11 @@ def main():
         k_arg = args.k_shingle
         num_permutations = args.num_permutations
 
+        st = time.time()
         shingle_files(files_path, './shingles.pkl', k_arg)
-        plagiarism_check('./shingles.pkl', num_permutations)
-
+        # plagiarism_check_minhash_permutations('./shingles.pkl', num_permutations)
+        plagiarism_check_minhash('./shingles.pkl', num_hash=20)
+        print("Done in ",time.time() - st, " seconds")
 
 if __name__ == '__main__':
     main()
