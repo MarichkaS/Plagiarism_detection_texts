@@ -1,4 +1,4 @@
-# Plagiarism detection system for texts
+# Plagiarism detection system for texts using minhash
 Task from MMDS course.
 
 
